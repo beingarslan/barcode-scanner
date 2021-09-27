@@ -70,6 +70,7 @@
                     lastResult = decodedText;
                     // Handle on success condition with the decoded message.
                     // console.log(`Scan result ${decodedText}`, decodedResult);
+                    alert(decodedText);
                     console.log(decodedText);
                     console.log(decodedResult);
                     // Find a <table> element with id="myTable":
