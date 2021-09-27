@@ -21,7 +21,8 @@
         </div>
     </div>
 
-    <script src="html5-qrcode.min.js"></script>
+    <!-- <script src="html5-qrcode.min.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5-qrcode/2.0.3/html5-qrcode.min.js" integrity="sha512-uOj9C1++KO/GY58nW0CjDiUjLKWQG4yB/NJMj3PtJNmFA52Hg56lojRtvBpLgQyVByUD+1M3M/1tKdoGDKUBAQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script>
         function docReady(fn) {
             // see if DOM is already available
