@@ -21,4 +21,4 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/test', 'HomeController@test')->name('test');
+Route::get('/scanner', 'HomeController@scanner')->name('scanner');
