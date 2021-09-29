@@ -12,12 +12,17 @@
             <div id="qr-reader" style="width:500px; height: 500px"></div>
         </div>
     </div>
+    <br>
     <div class="card">
         <div class="card-body">
 
+            <table class="table" id="myTable">
+
+            </table>
             <form action="{{route('save-results')}}" method="post">
+                @csrf
                 <div id="qr-reader-results"></div>
-                <button style="display: block" type="submit" class="btn btn-primary">Save Results</button>
+                <button style="display: none" type="submit" id="btn-submit" class="btn btn-primary">Save Results</button>
             </form>
         </div>
     </div>
@@ -56,17 +61,17 @@
                     // var table = document.getElementById("myTable");
 
                     // // Create an empty <tr> element and add it to the 1st position of the table:
-                    // var row = table.insertRow(0);
+                    var row = table.insertRow(0);
 
-                    // // Insert new cells (<td> elements) at the 1st and 2nd position of the "new" <tr> element:
-                    // var cell1 = row.insertCell(0);
-                    // // var cell2 = row.insertCell(1);
+                    // Insert new cells (<td> elements) at the 1st and 2nd position of the "new" <tr> element:
+                    var cell1 = row.insertCell(0);
+                    // var cell2 = row.insertCell(1);
 
-                    // // Add some text to the new cells:
-                    // cell1.innerHTML = decodedText;
+                    // Add some text to the new cells:
+                    cell1.innerHTML = decodedText;
                     // cell2.innerHTML = "NEW CELL2";
-                    $('#qr-reader-results').append('<input type="text" value="'+decodedText+'"" name="value[]"/>');
-
+                    $('#qr-reader-results').append('<input type="hidden" value="'+decodedText+'"" name="value[]"/>');
+                    $('#btn-submit').show();
                 }
             }
 
