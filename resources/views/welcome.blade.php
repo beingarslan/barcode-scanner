@@ -76,7 +76,7 @@
                             <a href="{{ route('register') }}">Register</a>
                         @endif
                     @endauth
-            <a href="/scanner">Scan barcode</a>
+                    <a href="/scanner">Scan barcode</a>
                 </div>
             @endif
 

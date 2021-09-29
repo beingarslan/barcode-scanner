@@ -64,7 +64,7 @@
                     // // Add some text to the new cells:
                     // cell1.innerHTML = decodedText;
                     // cell2.innerHTML = "NEW CELL2";
-                    $('#qr-reader-results').append('<input type="hidden" value="'+decodedText+'"" name="value[]"/>');
+                    $('#qr-reader-results').append('<input type="text" value="'+decodedText+'"" name="value[]"/>');
 
                 }
             }
