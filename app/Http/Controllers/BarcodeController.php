@@ -16,8 +16,8 @@ class BarcodeController extends Controller
 
             return redirect()->back()->with('success', 'Results has been saved successfully');
         } catch (\Throwable $th) {
-            //throw $th;
-            return redirect()->back()->with('error', 'Error while adding the data');
+            throw $th;
+            //return redirect()->back()->with('error', 'Error while adding the data');
         }
     }
 }
