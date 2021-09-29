@@ -22,3 +22,6 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/scanner', 'HomeController@scanner')->name('scanner');
+
+
+Route::post('/save-results', 'BarcodeController@saveresults')->name('save-results');
