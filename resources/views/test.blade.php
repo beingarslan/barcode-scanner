@@ -9,7 +9,7 @@
 <body>
     <div class="card">
         <div class="card-body">
-            <div id="qr-reader" style="width:100%; height: 500px"></div>
+            <div id="qr-reader" style="width:500px; height: 500px"></div>
         </div>
     </div>
     <div class="card">
