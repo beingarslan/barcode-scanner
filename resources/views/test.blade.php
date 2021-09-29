@@ -7,14 +7,24 @@
 </head>
 
 <body>
+@if (Session::has('success'))
+    <div class="alert alert-success">
+        Data has been saved successfully
+    </div>
+@endif
+@if (Session::has('error'))
+    <div class="alert alert-danger">
+        Data has been saved successfully
+    </div>
+@endif
     <div class="card">
-        <div class="card-body">
+        <div class="card-body text-center" style="text-align: center; margin:auto">
             <div id="qr-reader" style="width:500px; height: 500px"></div>
         </div>
     </div>
     <br>
     <div class="card">
-        <div class="card-body">
+        <div class="card-body" style="text-align: center; margin:auto">
 
             <table class="table" id="myTable">
 
