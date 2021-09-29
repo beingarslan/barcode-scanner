@@ -58,7 +58,7 @@
                     // console.log(decodedText);
                     // console.log(decodedResult);
                     // Find a <table> element with id="myTable":
-                    // var table = document.getElementById("myTable");
+                    var table = document.getElementById("myTable");
 
                     // // Create an empty <tr> element and add it to the 1st position of the table:
                     var row = table.insertRow(0);
