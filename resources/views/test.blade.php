@@ -19,7 +19,7 @@
     @endif
     <div class="card">
         <div class="card-body text-center" style="text-align: center; margin:auto">
-            <div id="qr-reader" style="width:500px; height: 500px"></div>
+            <div id="qr-reader" style="width:500px; height: auto"></div>
         </div>
     </div>
     <br>
@@ -87,8 +87,8 @@
             "qr-reader", {
                 fps: 15,
                 qrbox: {
-                    width: 250,
-                    height: 250
+                    width: 500,
+                    height: 500
                 }
             },
             /* verbose= */
