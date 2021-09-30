@@ -87,8 +87,8 @@
             "qr-reader", {
                 fps: 15,
                 qrbox: {
-                    width: 500,
-                    height: 500
+                    width: 450,
+                    height: 450
                 }
             },
             /* verbose= */
