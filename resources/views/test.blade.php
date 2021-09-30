@@ -106,6 +106,7 @@
         }).catch(err => {
             // handle err
         });
+        $('#qr-reader__dashboard_section_swaplink').hide();
         html5QrcodeScanner.render(onScanSuccess, onScanFailure);
     </script>
 </body>

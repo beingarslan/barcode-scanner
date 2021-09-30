@@ -8,7 +8,7 @@ class Barcode extends Model
 {
     protected $filable = [
         'id',
-        'value',
+        'barcode_value',
         'created_at',
         'updated_at'
     ];

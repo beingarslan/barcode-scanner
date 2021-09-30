@@ -15,7 +15,7 @@ class CreateBarcodesTable extends Migration
     {
         Schema::create('barcodes', function (Blueprint $table) {
             $table->id();
-            $table->text('value');
+            $table->text('barcode_value');
             $table->timestamps();
         });
     }

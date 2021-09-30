@@ -11,7 +11,7 @@ class BarcodeController extends Controller
         try {
             foreach($request->input('value') as $value)
             $barcode = Barcode::create([
-                'value' => $value
+                'barcode_value' => $value
             ]);
 
             return redirect()->back()->with('success', 'Results has been saved successfully');
