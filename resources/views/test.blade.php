@@ -45,6 +45,8 @@
     <script src="{{asset('dist/html5-qrcode.min.js')}}"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
+        var resultContainer = document.getElementById('qr-reader-results');
+            var lastResult, countResults = 0;
         function onScanSuccess(decodedText, decodedResult) {
             // handle the scanned code as you like, for example:
             console.log(`Code matched = ${decodedText}`, decodedResult);
