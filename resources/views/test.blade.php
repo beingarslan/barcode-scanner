@@ -46,68 +46,129 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
         var resultContainer = document.getElementById('qr-reader-results');
-            var lastResult, countResults = 0;
-        function onScanSuccess(decodedText, decodedResult) {
-            // handle the scanned code as you like, for example:
-            console.log(`Code matched = ${decodedText}`, decodedResult);
-            var table = document.getElementById("myTable");
-            if (decodedText !== lastResult) {
-                ++countResults;
-                lastResult = decodedText;
-                // Handle on success condition with the decoded message.
-                // console.log(`Scan result ${decodedText}`, decodedResult);
-                // alert(decodedText);
-                // console.log(decodedText);
-                // console.log(decodedResult);
-                // Find a <table> element with id="myTable":
-                var table = document.getElementById("myTable");
+        var lastResult, countResults = 0;
 
-                // // Create an empty <tr> element and add it to the 1st position of the table:
-                var row = table.insertRow(0);
+        // function onScanSuccess(decodedText, decodedResult) {
+        //     // handle the scanned code as you like, for example:
+        //     console.log(`Code matched = ${decodedText}`, decodedResult);
+        //     var table = document.getElementById("myTable");
+        //     if (decodedText !== lastResult) {
+        //         ++countResults;
+        //         lastResult = decodedText;
+        //         // Handle on success condition with the decoded message.
+        //         // console.log(`Scan result ${decodedText}`, decodedResult);
+        //         // alert(decodedText);
+        //         // console.log(decodedText);
+        //         // console.log(decodedResult);
+        //         // Find a <table> element with id="myTable":
+        //         var table = document.getElementById("myTable");
 
-                // Insert new cells (<td> elements) at the 1st and 2nd position of the "new" <tr> element:
-                var cell1 = row.insertCell(0);
-                // var cell2 = row.insertCell(1);
+        //         // // Create an empty <tr> element and add it to the 1st position of the table:
+        //         var row = table.insertRow(0);
 
-                // Add some text to the new cells:
-                cell1.innerHTML = decodedText;
-                // cell2.innerHTML = "NEW CELL2";
-                $('#qr-reader-results').append('<input type="hidden" value="' + decodedText + '"" name="value[]"/>');
-                $('#btn-submit').show();
-            }
-        }
+        //         // Insert new cells (<td> elements) at the 1st and 2nd position of the "new" <tr> element:
+        //         var cell1 = row.insertCell(0);
+        //         // var cell2 = row.insertCell(1);
 
-        function onScanFailure(error) {
-            // handle scan failure, usually better to ignore and keep scanning.
-            // for example:
-            console.warn(`Code scan error = ${error}`);
-        }
+        //         // Add some text to the new cells:
+        //         cell1.innerHTML = decodedText;
+        //         // cell2.innerHTML = "NEW CELL2";
+        //         $('#qr-reader-results').append('<input type="hidden" value="' + decodedText + '"" name="value[]"/>');
+        //         $('#btn-submit').show();
+        //     }
+        // }
 
-        let html5QrcodeScanner = new Html5QrcodeScanner(
-            "qr-reader", {
-                fps: 15,
-                qrbox: {
-                    width: 450,
-                    height: 450
-                }
-            },
-            /* verbose= */
-            false);
+        // function onScanFailure(error) {
+        //     // handle scan failure, usually better to ignore and keep scanning.
+        //     // for example:
+        //     console.warn(`Code scan error = ${error}`);
+        // }
+
+        // let html5QrcodeScanner = new Html5QrcodeScanner(
+        //     "qr-reader", {
+        //         fps: 15,
+        //         qrbox: {
+        //             width: 450,
+        //             height: 450
+        //         }
+        //     },
+        //     /* verbose= */
+        //     false);
+        // html5QrcodeScanner.getCameras().then(devices => {
+        //     /**
+        //      * devices would be an array of objects of type:
+        //      * { id: "id", label: "label" }
+        //      */
+        //     if (devices && devices.length) {
+        //         var cameraId = devices[0].id;
+        //         // .. use this to start scanning.
+        //         console.log(cameraId + 'html5QrcodeScanner');
+        //     }
+        // }).catch(err => {
+        //     // handle err
+        // });
+        // $('#qr-reader__dashboard_section_swaplink').hide();
+        // html5QrcodeScanner.render(onScanSuccess, onScanFailure);
+
+        const html5QrCode = new Html5Qrcode( /* element id */ "qr-reader");
+            // This method will trigger user permissions
         Html5Qrcode.getCameras().then(devices => {
-            /**
-             * devices would be an array of objects of type:
-             * { id: "id", label: "label" }
-             */
-            if (devices && devices.length) {
-                var cameraId = devices[0].id;
-                // .. use this to start scanning.
-                // console.log(cameraId+'html5QrcodeScanner');
-            }
+        /**
+         * devices would be an array of objects of type:
+         * { id: "id", label: "label" }
+         */
+        if (devices && devices.length) {
+            var cameraId = devices[0].id;
+            // .. use this to start scanning.
+            html5QrCode.start(
+                cameraId, {
+                    fps: 10, // Optional, frame per seconds for qr code scanning
+                    qrbox: {
+                        width: 250,
+                        height: 250
+                    } // Optional, if you want bounded box UI
+                },
+                (decodedText, decodedResult) => {
+                    // do something when code is read
+                    console.log(`Code matched = ${decodedText}`, decodedResult);
+                    var table = document.getElementById("myTable");
+                    if (decodedText !== lastResult) {
+                        ++countResults;
+                        lastResult = decodedText;
+                        // Handle on success condition with the decoded message.
+                        // console.log(`Scan result ${decodedText}`, decodedResult);
+                        // alert(decodedText);
+                        // console.log(decodedText);
+                        // console.log(decodedResult);
+                        // Find a <table> element with id="myTable":
+                        var table = document.getElementById("myTable");
+
+                        // // Create an empty <tr> element and add it to the 1st position of the table:
+                        var row = table.insertRow(0);
+
+                        // Insert new cells (<td> elements) at the 1st and 2nd position of the "new" <tr> element:
+                        var cell1 = row.insertCell(0);
+                        // var cell2 = row.insertCell(1);
+
+                        // Add some text to the new cells:
+                        cell1.innerHTML = decodedText;
+                        // cell2.innerHTML = "NEW CELL2";
+                        $('#qr-reader-results').append('<input type="hidden" value="' + decodedText + '"" name="value[]"/>');
+                        $('#btn-submit').show();
+                    }
+                },
+                (errorMessage) => {
+                    // parse error, ignore it.
+                })
+            .catch((err) => {
+                // Start failed, handle it.
+            });
+        }
         }).catch(err => {
-            // handle err
+        // handle err
         });
-        $('#qr-reader__dashboard_section_swaplink').hide();
-        html5QrcodeScanner.render(onScanSuccess, onScanFailure);
+
+        
     </script>
 </body>
 

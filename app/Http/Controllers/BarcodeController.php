@@ -7,12 +7,14 @@ use Illuminate\Http\Request;
 
 class BarcodeController extends Controller
 {
-    public function saveresults(Request $request){
+    public function saveresults(Request $request)
+    {
         try {
-            foreach($request->input('value') as $value)
-            $barcode = Barcode::create([
-                'barcode_value' => $value
-            ]);
+            foreach ($request->input('value') as $value)
+                $barcode = Barcode::create([
+                    'barcode_value' => $value
+                ]);
+
 
             return redirect()->back()->with('success', 'Results has been saved successfully');
         } catch (\Throwable $th) {
