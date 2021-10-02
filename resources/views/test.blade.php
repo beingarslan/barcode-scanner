@@ -118,8 +118,8 @@
          * { id: "id", label: "label" }
          */
         if (devices && devices.length) {
-            var cameraId = devices[0].id;
-            alert(devices.length);
+            var cameraId = devices[1].id;
+            alert(cameraId);
             // alert
             // .. use this to start scanning.
             html5QrCode.start(
